@@ -1,0 +1,32 @@
+
+<% if @vehicle.main_picture %>
+  <img src="/cars/<%= @vehicle.main_picture %>" width="400px" />
+<% end %>
+<h1><%= "#{@vehicle.year} #{@vehicle.make}, #{@vehicle.model}" %></h1>
+<ul>
+	<li>Cost: <%= @vehicle.buyprice %></li>
+	<li>Price: <%= @vehicle.sellprice %></li>
+	<li>Kilometers travelled: <%= @vehicle.kilometers_travelled %></li>
+	<li>Engine capacity: <%= @vehicle.engine_capacity %></li>
+	<li>Colour: <%= @vehicle.colour %></li>
+	<li>Security interest: <%= @vehicle.security_interest %></li>
+	<li>Radio receiver: <%= @vehicle.radio_receiver %></li>
+	<li>Re-registered vehicle: <%= @vehicle.re_registered_vehicle %></li>
+	<li>Road user charges: <%= @vehicle.road_user_charges %></li>
+	<li>Outstanding road user charges: <%= @vehicle.outstanding_road_user_charges %></li>
+	<li>Imported: <%= @vehicle.imported %></li>
+	<li>Imported damaged: <%= @vehicle.imported_damaged %></li>
+	<li>Warrant expiry: <%= @vehicle.warrant_expiry %></li>
+	<li>Vehicle licence expiry: <%= @vehicle.vehicle_licence_expiry %></li>
+	<li>First registered: <%= @vehicle.first_registered %></li>
+	<% if @vehicle.imported %>
+		<li>First registered overseas: <%= @vehicle.first_registered_overseas %></li>
+		<li>Country last registered: <%= @vehicle.country_last_registered %></li>
+	<% end %>
+	<li>Registration plate number: <%= @vehicle.registration_number %></li>
+	<li>Vin number: <%= @vehicle.vin_number %></li>
+	<li>Fuel type: <%= @vehicle.fuel_type %></li>
+	<li>Description: <%= @vehicle.description %></li>
+</ul>
+<a href="/vehicles/delete/<%= @vehicle.id %>">Delete</a>
+  

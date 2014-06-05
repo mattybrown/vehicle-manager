@@ -1,0 +1,113 @@
+<h3>Add vehicle</h3>
+
+<form action="/vehicles" method="post" enctype="multipart/form-data">
+  
+  <label for="vehicle_make">Make</label>
+  <input id="vehicle_make" name="vehicle[make]" type="text" value="<%= @vehicle.make %>" />
+  <br />
+
+  <label for="vehicle_model">Model</label>
+  <input id="vehicle_model" name="vehicle[model]" type="text" value="<%= @vehicle.model %>" />
+  <br />
+
+  <label for="vehicle_year">Year</label>
+  <input id="vehicle_year" name="vehicle[year]" type="text" value="<%= @vehicle.year %>" />
+  <br />
+
+  <label for="vehicle_sellprice">Sell Price</label>
+  <input id="vehicle_sellprice" name="vehicle[sellprice]" type="text" value="<%= @vehicle.sellprice %>" />
+  <br />
+
+  <label for="vehicle_buyprice">Buy Price</label>
+  <input id="vehicle_buyprice" name="vehicle[buyprice]" type="text" value="<%= @vehicle.buyprice %>" />
+  <br />
+
+  <label for="vehicle_kilometers_travelled">Kilometers travelled</label>
+  <input id="vehicle_kilometers_travelled" name="vehicle[kilometers_travelled]" type="text" value="<%= @vehicle.kilometers_travelled %>" />
+  <br />
+
+  <label for="vehicle_engine_capacity">Engine capacity</label>
+  <input id="vehicle_engine_capacity" name="vehicle[engine_capacity]" type="text" value="<%= @vehicle.engine_capacity %>" />
+  <br />
+
+  <label for="vehicle_colour">Colour</label>
+  <input id="vehicle_colour" name="vehicle[colour]" type="text" value="<%= @vehicle.colour %>" />
+  <br />
+
+  <label for="vehicle_security_interest">Is there a security interest on this car?</label>
+  <input id="vehicle_security_interest" name="vehicle[security_interest]" type="radio" value="true" />Yes
+  <input id="vehicle_security_interest" name="vehicle[security_interest]" type="radio" value="false" checked />No
+  <br />
+
+  <label for="vehicle_radio_receiver">Radio receiver capability</label>
+  <input id="vehicle_radio_receiver" name="vehicle[radio_receiver]" type="radio" value="true" checked />Yes
+  <input id="vehicle_radio_receiver" name="vehicle[radio_receiver]" type="radio" value="false" />No
+  <br />
+
+  <label for="vehicle_re_registered_vehicle">Re-registered vehicle</label>
+  <input id="vehicle_re_registered_vehicle" name="vehicle[re_registered_vehicle]" type="radio" value="true" />Yes
+  <input id="vehicle_re_registered_vehicle" name="vehicle[re_registered_vehicle]" type="radio" value="false" checked />No
+  <br />
+
+  <label for="vehicle_road_user_charges">Road user charges apply</label>
+  <input id="vehicle_road_user_charges" name="vehicle[road_user_charges]" type="radio" value="true" />Yes
+  <input id="vehicle_road_user_charges" name="vehicle[road_user_charges]" type="radio" value="false" checked />No
+  <br />
+
+  <label for="vehicle_outstanding_road_user_charges">Outstanding road user charges</label>
+  <input id="vehicle_outstanding_road_user_charges" name="vehicle[outstanding_road_user_charges]" type="radio" value="true" />Yes
+  <input id="vehicle_outstanding_road_user_charges" name="vehicle[outstanding_road_user_charges]" type="radio" value="false" checked />No
+  <br />
+
+  <label for="vehicle_imported">Imported</label>
+  <input id="vehicle_imported" name="vehicle[imported]" type="radio" value="true" />Yes
+  <input id="vehicle_imported" name="vehicle[imported]" type="radio" value="false" checked />No
+  <br />
+
+  <label for="vehicle_imported_damaged">Imported</label>
+  <input id="vehicle_imported_damaged" name="vehicle[imported_damaged]" type="radio" value="true" />Yes
+  <input id="vehicle_imported_damaged" name="vehicle[imported_damaged]" type="radio" value="false" checked />No
+  <br />
+
+  <label for="vehicle_warrant_expiry">Warrant or Certificate of Fitness expiry date</label>
+  <input id="vehicle_warrant_expiry" name="vehicle[warrant_expiry]" type="text" value="<%= @vehicle.warrant_expiry %>" />
+  <br />
+
+  <label for="vehicle_vehicle_licence_expiry">Vehicle licence expiry date</label>
+  <input id="vehicle_vehicle_licence_expiry" name="vehicle[vehicle_licence_expiry]" type="text" value="<%= @vehicle.vehicle_licence_expiry %>" />
+  <br />
+
+  <label for="vehicle_first_registered">Year first registered in NZ</label>
+  <input id="vehicle_first_registered" name="vehicle[first_registered]" type="text" value="<%= @vehicle.first_registered %>" />
+  <br />
+
+  <label for="vehicle_first_registered_overseas">Year first registered overseas</label>
+  <input id="vehicle_first_registered_overseas" name="vehicle[first_registered_overseas]" type="text" value="<%= @vehicle.first_registered_overseas %>" />
+  <br />
+
+  <label for="vehicle_country_last_registered">Country where last registered</label>
+  <input id="vehicle_country_last_registered" name="vehicle[country_last_registered]" type="text" value="<%= @vehicle.country_last_registered %>" />
+  <br />
+
+  <label for="vehicle_registration_number">Registration plate number</label>
+  <input id="vehicle_registration_number" name="vehicle[registration_number]" type="text" value="<%= @vehicle.registration_number %>" />
+  <br />
+
+  <label for="vehicle_vin_number">Vehicle Identification Number or Chassis Number</label>
+  <input id="vehicle_vin_number" name="vehicle[vin_number]" type="text" value="<%= @vehicle.vin_number %>" />
+  <br />
+
+  <label for="vehicle_fuel_typer">Operating fuel type</label>
+  <input id="vehicle_fuel_type" name="vehicle[fuel_type]" type="text" value="<%= @vehicle.fuel_type %>" />
+  <br />
+
+  <label for="vehicle_description">Description</label>
+  <textarea id="vehicle_description" name="vehicle[description]" value="<%= @vehicle.description %>"></textarea>
+  <br />
+
+  <label for="vehicle_main_picture">Main picture</label>
+  <input id="vehicle_main_picture" name="vehicle[main_picture]" type="file" />
+  <br />
+
+  <input type="submit" value="Add vehicle" />
+</form>

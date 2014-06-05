@@ -1,0 +1,7 @@
+<p><strong><%= "Hi, #{@user}" %></strong></p>
+<a href="/vehicles/new">Add a car</a>
+<ul>
+<% @vehicles.each do |v| %>
+  <li><a href="vehicles/show/<%= v.id %>"><%= "#{v.year} #{v.make} #{v.model}" %></a></li>
+<% end %>
+</ul>

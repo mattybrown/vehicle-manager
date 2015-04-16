@@ -4,6 +4,7 @@
 <% end %>
 -->
 <h1><%= "#{@vehicle.year} #{@vehicle.make}, #{@vehicle.model}" %></h1>
+<h5>Total profit: <%= calculate_profit(@vehicle.id) %></h5>
 <ul>
 	<li>Cost: <%= @vehicle.buyprice %></li>
         <li>Purchase date: <%= @vehicle.purchase_date %></li>

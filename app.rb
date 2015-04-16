@@ -33,6 +33,18 @@ helpers do
   def logged_in?
     session['u']
   end
+
+  def calculate_profit(v)
+    vehicle = Vehicle.find(v)
+    costs = Cost.where(vehicle_id: v)
+    total_cost = 0
+    costs.each do |c|
+      total_cost += c.price
+    end
+
+    profit = vehicle.sellprice - vehicle.buyprice - total_cost
+    return profit
+  end
 end
 
 get "/" do

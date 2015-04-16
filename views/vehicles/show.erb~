@@ -33,7 +33,7 @@
 </ul>
 <a href="/vehicles/delete/<%= @vehicle.id %>">Delete</a>
 <a href="/vehicles/edit/<%= @vehicle.id %>">Edit</a>
-
+<hr />
 <div id="costs">
   <h3>Costs incurred</h3>
   <% @costs.each do |c| %>

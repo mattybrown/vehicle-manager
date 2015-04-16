@@ -6,6 +6,7 @@ require 'bundler/setup'
 
 set :database, "sqlite:///vms.db"
 enable :sessions
+set :session_secret, 'very very secret'
 use Rack::Flash
 
 
@@ -54,6 +55,24 @@ post "/vehicles" do
   @vehicle.kilometers_travelled = params[:vehicle][:kilometers_travelled].delete ","
 
   if @vehicle.save
+    redirect "/"
+    flash[:notice] = "Vehicle saved"
+  else
+    flash[:notice] = "Save failed - #{params[:vehicle]}"
+    redirect "/"
+    
+  end
+end
+
+post "/vehicles/edit/:id" do
+  @vehicle = Vehicle.find(params[:id])
+  @vehicle.update(params[:vehicle])
+  @vehicle.sellprice = params[:vehicle][:sellprice].delete "$,"
+  @vehicle.buyprice = params[:vehicle][:buyprice].delete "$,"
+  @vehicle.kilometers_travelled = params[:vehicle][:kilometers_travelled].delete ","
+
+  if @vehicle.save
+    flash[:notice] = "Vehicle updated"
     redirect "/"
   else
     flash[:notice] = "Save failed - #{params[:vehicle]}"

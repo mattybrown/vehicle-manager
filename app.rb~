@@ -6,6 +6,7 @@ require 'bundler/setup'
 
 set :database, "sqlite:///vms.db"
 enable :sessions
+set :session_secret, 'very very secret'
 use Rack::Flash
 
 
@@ -40,20 +41,38 @@ end
 
 post "/vehicles" do
   @vehicle = Vehicle.new(params[:vehicle])
-
+=begin
   if params[:vehicle][:main_picture]
     File.open('public/cars/' + params[:vehicle][:main_picture][:filename], "w") do |f|
       f.write(params[:vehicle][:main_picture][:tempfile].read)
     end
-  
+
     @vehicle.main_picture = params[:vehicle][:main_picture][:filename]
   end
-
+=end  
   @vehicle.sellprice = params[:vehicle][:sellprice].delete "$,"
   @vehicle.buyprice = params[:vehicle][:buyprice].delete "$,"
   @vehicle.kilometers_travelled = params[:vehicle][:kilometers_travelled].delete ","
 
   if @vehicle.save
+    redirect "/"
+    flash[:notice] = "Vehicle saved"
+  else
+    flash[:notice] = "Save failed - #{params[:vehicle]}"
+    redirect "/"
+    
+  end
+end
+
+post "/vehicles/edit/:id" do
+  @vehicle = Vehicle.find(params[:id])
+  @vehicle.update_all(params[:vehicle])
+  @vehicle.sellprice = params[:vehicle][:sellprice].delete "$,"
+  @vehicle.buyprice = params[:vehicle][:buyprice].delete "$,"
+  @vehicle.kilometers_travelled = params[:vehicle][:kilometers_travelled].delete ","
+
+  if @vehicle.save
+    flash[:notice] = "Vehicle updated"
     redirect "/"
   else
     flash[:notice] = "Save failed - #{params[:vehicle]}"

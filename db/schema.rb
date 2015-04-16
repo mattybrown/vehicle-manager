@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510215753) do
+ActiveRecord::Schema.define(version: 20150416043553) do
+
+  create_table "costs", force: true do |t|
+    t.string  "name"
+    t.text    "description"
+    t.float   "price"
+    t.integer "vehicle_id"
+  end
+
+  add_index "costs", ["vehicle_id"], name: "index_costs_on_vehicle_id"
 
   create_table "users", force: true do |t|
     t.string   "uname"
@@ -23,8 +32,8 @@ ActiveRecord::Schema.define(version: 20140510215753) do
     t.string   "make"
     t.string   "model"
     t.integer  "year"
-    t.integer  "sellprice"
-    t.integer  "buyprice"
+    t.float    "sellprice"
+    t.float    "buyprice"
     t.integer  "kilometers_travelled"
     t.string   "engine_capacity"
     t.string   "colour"
@@ -47,6 +56,8 @@ ActiveRecord::Schema.define(version: 20140510215753) do
     t.string   "vin_number"
     t.string   "fuel_type"
     t.string   "main_picture"
+    t.string   "purchase_date"
+    t.string   "sale_date"
   end
 
 end

@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
   validates :password, presence: true
 end
 
+class Cost < ActiveRecord::Base
+end
+
 helpers do
   def create_password(p)
     BCrypt::Password.create(p)
@@ -88,6 +91,7 @@ end
 
 get '/vehicles/show/:id' do
   @vehicle = Vehicle.find(params[:id])
+  @costs = Cost.where(vehicle_id: params[:id])
   erb :"vehicles/show"
 end
 
@@ -99,6 +103,18 @@ end
 get "/vehicles/delete/:id" do
   Vehicle.destroy(params[:id])
   redirect "/"
+end
+
+post "/costs" do
+  @cost = Cost.new(params[:cost])
+  if @cost.save
+    redirect back
+    flash[:notice] = "Cost added"
+  else
+    flash[:notice] = "Save failed - #{params[:cost]}"
+    redirect back
+    
+  end
 end
 
 get "/users/new" do

@@ -1,7 +1,11 @@
 <p><strong><%= "Hi, #{@user}" %></strong></p>
 <a href="/vehicles/new">Add a car</a>
-<ul>
+<ul id="vehicle_list">
 <% @vehicles.each do |v| %>
-  <li><a href="vehicles/show/<%= v.id %>"><%= "#{v.year} #{v.make} #{v.model}" %></a></li>
+  <% if v.sale_date == "" %>
+    <li class="for_sale"><a href="vehicles/show/<%= v.id %>"><%= "#{v.year} #{v.make} #{v.model}" %></a></li>
+  <% else %>
+    <li class="sold"><a href="vehicles/show/<%= v.id %>"><%= "#{v.year} #{v.make} #{v.model}" %></a></li>
+  <% end %>  
 <% end %>
 </ul>

@@ -6,7 +6,9 @@
 <h1><%= "#{@vehicle.year} #{@vehicle.make}, #{@vehicle.model}" %></h1>
 <ul>
 	<li>Cost: <%= @vehicle.buyprice %></li>
+        <li>Purchase date: <%= @vehicle.purchase_date %></li>
 	<li>Price: <%= @vehicle.sellprice %></li>
+        <li>Sale date: <%= @vehicle.sale_date %></li>
 	<li>Kilometers travelled: <%= @vehicle.kilometers_travelled %></li>
 	<li>Engine capacity: <%= @vehicle.engine_capacity %></li>
 	<li>Colour: <%= @vehicle.colour %></li>
@@ -31,4 +33,30 @@
 </ul>
 <a href="/vehicles/delete/<%= @vehicle.id %>">Delete</a>
 <a href="/vehicles/edit/<%= @vehicle.id %>">Edit</a>
-  
+<hr />
+<div id="costs">
+  <h3>Costs incurred</h3>
+  <% @costs.each do |c| %>
+    <ul>
+      <li>Name: <%= c.name %></li>
+      <li>Description: <%= c.description %></li>
+      <li>Price: <%= c.price %></li>
+    </ul>
+  <% end %>
+  <h5>Add a cost</h5>
+  <form action="/costs" method="post">
+    <label for="cost_name">Name</label>
+    <input id="cost_name" name="cost[name]" type="text" value="" />
+    <br />
+
+    <label for="cost_description">Description</label>
+    <textarea id="cost_description" name="cost[description]" type="text" value=""></textarea>
+    <br />
+
+    <label for="cost_price">Price</label>
+    <input id="cost_price" name="cost[price]" type="text" value="" />
+    <br />
+    <input type="hidden" name="cost[vehicle_id]" value="<%= @vehicle.id %>" />
+    <input type="submit" value="Add cost" />
+  </form>
+</div>

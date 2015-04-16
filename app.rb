@@ -40,15 +40,15 @@ end
 
 post "/vehicles" do
   @vehicle = Vehicle.new(params[:vehicle])
-
+=begin
   if params[:vehicle][:main_picture]
     File.open('public/cars/' + params[:vehicle][:main_picture][:filename], "w") do |f|
       f.write(params[:vehicle][:main_picture][:tempfile].read)
     end
-  
+
     @vehicle.main_picture = params[:vehicle][:main_picture][:filename]
   end
-
+=end  
   @vehicle.sellprice = params[:vehicle][:sellprice].delete "$,"
   @vehicle.buyprice = params[:vehicle][:buyprice].delete "$,"
   @vehicle.kilometers_travelled = params[:vehicle][:kilometers_travelled].delete ","
@@ -60,6 +60,11 @@ post "/vehicles" do
     redirect "/"
     
   end
+end
+
+get '/vehicles/edit/:id' do
+  @vehicle = Vehicle.find(params[:id])
+  erb :"vehicles/edit"
 end
 
 get '/vehicles/show/:id' do
@@ -88,7 +93,7 @@ post "/users" do
   if @user.save
     redirect "/"
   else
-    "Nah didn't work!"
+    flash[:notice] = "Nah didn't work!"
   end
 end
 

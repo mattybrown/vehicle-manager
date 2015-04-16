@@ -1,8 +1,7 @@
-=begin
+
 <% if @vehicle.main_picture %>
   <img src="/cars/<%= @vehicle.main_picture %>" width="400px" />
 <% end %>
-=end
 <h1><%= "#{@vehicle.year} #{@vehicle.make}, #{@vehicle.model}" %></h1>
 <ul>
 	<li>Cost: <%= @vehicle.buyprice %></li>

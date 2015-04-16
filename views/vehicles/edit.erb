@@ -1,6 +1,6 @@
 <h3>Add vehicle</h3>
 
-<form action="/vehicles" method="post" enctype="multipart/form-data">
+<form action="/vehicles/edit/<%= @vehicle.id %>" method="post" enctype="multipart/form-data">
   
   <label for="vehicle_make">Make</label>
   <input id="vehicle_make" name="vehicle[make]" type="text" value="<%= @vehicle.make %>" />
@@ -109,5 +109,5 @@
   <input id="vehicle_main_picture" name="vehicle[main_picture]" type="file" />
   <br />
 
-  <input type="submit" value="Add vehicle" />
+  <input type="submit" value="Update vehicle" />
 </form>

@@ -5,18 +5,27 @@ secure login
 CRUD vehicles
   
   vehicle details
-    create a new vehicle
-    display all vehicles
-    display a single vehicle with details
-    update an existing vehicle details
-    delete an existing vehicle
+    create a new vehicle - done
+    display all vehicles - done
+    display a single vehicle with details - done
+    update an existing vehicle details - done
+    delete an existing vehicle - done
 
   costs accociated with the vehicle
-    purchase price
-    warrant and rego costs
+    purchase price 
+    warrant and rego costs 
     paint and panel costs
     repairs
     tyres
     cleaning
+  **implemented cover all cost system
+Analyse profit vs cost - done
 
-Analyse profit vs cost
+
+TODO 
+
+create a boolean yes/no helper
+
+make it look pretty
+
+user creation??

@@ -15,6 +15,7 @@ class Vehicle < ActiveRecord::Base
   validates :model, presence: true
   validates :year, presence: true
   validates :buyprice, presence: true
+  validates :stock_number, presence: true
 end
 
 class User < ActiveRecord::Base
@@ -23,6 +24,7 @@ class User < ActiveRecord::Base
 end
 
 class Cost < ActiveRecord::Base
+  validates :price, numericality: true
 end
 
 helpers do
@@ -39,12 +41,37 @@ helpers do
     costs = Cost.where(vehicle_id: v)
     total_cost = 0
     costs.each do |c|
-      total_cost += c.price
+      if c.price != nil
+        total_cost += c.price
+      end
     end
 
     profit = vehicle.sellprice - vehicle.buyprice - total_cost
-    return profit
+    return profit.round(2)
   end
+
+  def days_in_stock(v)
+    vehicle = Vehicle.find(v)
+    pd = vehicle.purchase_date
+    if vehicle.sale_date == ""
+      pd = Date.parse(pd)
+      today = Date.today
+      return today.mjd - pd.mjd
+    else
+      sd = Date.parse(vehicle.sale_date)
+      pd = Date.parse(pd)
+      return sd.mjd - pd.mjd
+    end
+  end
+
+  def true_yes(t)
+    if t == true
+      return "Yes"
+    else
+      return "No"
+    end
+  end
+
 end
 
 get "/" do
@@ -90,7 +117,7 @@ post "/vehicles/edit/:id" do
     flash[:notice] = "Vehicle updated"
     redirect "/"
   else
-    flash[:notice] = "Save failed - #{params[:vehicle]}"
+    flash[:notice] = @vehicle.errors.messages
     redirect "/"
     
   end
@@ -104,6 +131,7 @@ end
 get '/vehicles/show/:id' do
   @vehicle = Vehicle.find(params[:id])
   @costs = Cost.where(vehicle_id: params[:id])
+  @flash = flash[:notice]
   erb :"vehicles/show"
 end
 
@@ -120,10 +148,11 @@ end
 post "/costs" do
   @cost = Cost.new(params[:cost])
   if @cost.save
-    redirect back
     flash[:notice] = "Cost added"
+    redirect back
+
   else
-    flash[:notice] = "Save failed - #{params[:cost]}"
+    flash[:notice] = @cost.errors.full_messages
     redirect back
     
   end

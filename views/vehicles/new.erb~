@@ -104,10 +104,10 @@
   <label for="vehicle_description">Description</label>
   <textarea id="vehicle_description" name="vehicle[description]" value="<%= @vehicle.description %>"></textarea>
   <br />
-
+=begin
   <label for="vehicle_main_picture">Main picture</label>
   <input id="vehicle_main_picture" name="vehicle[main_picture]" type="file" />
   <br />
-
+=end
   <input type="submit" value="Add vehicle" />
 </form>

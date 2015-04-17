@@ -40,15 +40,18 @@
 
   <!-- Primary Page Layout
   ================================================== -->
-
-  <!-- Delete everything in this .container and get started on your own site! -->
+  <div id="nav">
+    <a href="/">HOME</a>
+  </div> 
   <div class="container">
-  
-    <div class="sixteen columns">
+ 
+
       <%= @flash %>
       <% if logged_in? %>
+        <div class="row">
         <%= yield %>
       <% else %>
+	<div class="row">
         <form action="/login" method="post">
           <label for="user_name">User name:</label>
           <input type="text" id="user_name" name="user[uname]" />

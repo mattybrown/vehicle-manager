@@ -1,3 +1,13 @@
 #vehicle_list li{
   padding:5px;
 }
+
+#vehicle_list .sold{
+  background:green;
+}
+
+#vehicle_list .for_sale{
+  background:red;
+}
+
+

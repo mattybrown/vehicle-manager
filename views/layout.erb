@@ -21,7 +21,6 @@
   <link rel="stylesheet" href="<%= url('stylesheets/base.css') %>">
   <link rel="stylesheet" href="<%= url('stylesheets/skeleton.css') %>">
   <link rel="stylesheet" href="<%= url('stylesheets/layout.css') %>">
-  <link rel="stylesheet" href="<%= url('stylesheets/custom.css') %>">
 
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -41,15 +40,19 @@
 
   <!-- Primary Page Layout
   ================================================== -->
-
-  <!-- Delete everything in this .container and get started on your own site! -->
+  <div id="nav">
+    <a href="/">HOME</a>
+  </div> 
   <div class="container">
-  
-    <div class="sixteen columns">
-      <%= @flash %>
+ 
+
+      
       <% if logged_in? %>
+        <div class="row">
+        <%= @flash %>
         <%= yield %>
       <% else %>
+	<div class="row">
         <form action="/login" method="post">
           <label for="user_name">User name:</label>
           <input type="text" id="user_name" name="user[uname]" />

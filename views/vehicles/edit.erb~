@@ -18,8 +18,16 @@
   <input id="vehicle_sellprice" name="vehicle[sellprice]" type="text" value="<%= @vehicle.sellprice %>" />
   <br />
 
+  <label for="vehicle_sale_date">Sale Date</label>
+  <input id="vehicle_sale_date" name="vehicle[sale_date]" type="text" value="<%= @vehicle.sale_date %>" />
+  <br />
+
   <label for="vehicle_buyprice">Buy Price</label>
   <input id="vehicle_buyprice" name="vehicle[buyprice]" type="text" value="<%= @vehicle.buyprice %>" />
+  <br />
+
+  <label for="vehicle_purchase_date">Purchase Date</label>
+  <input id="vehicle_purchase_date" name="vehicle[purchase_date]" type="text" value="<%= @vehicle.purchase_date %>" />
   <br />
 
   <label for="vehicle_kilometers_travelled">Kilometers travelled</label>

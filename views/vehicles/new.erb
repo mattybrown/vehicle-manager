@@ -1,7 +1,10 @@
 <h3>Add vehicle</h3>
 
 <form action="/vehicles" method="post" enctype="multipart/form-data">
-  
+  <label for="vehicle_stock_number">Stock Number</label>
+  <input id="vehicle_stock_number" name="vehicle[stock_number]" type="text" value="<%= @vehicle.stock_number %>" />
+  <br />
+
   <label for="vehicle_make">Make</label>
   <input id="vehicle_make" name="vehicle[make]" type="text" value="<%= @vehicle.make %>" />
   <br />

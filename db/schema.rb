@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416043553) do
+ActiveRecord::Schema.define(version: 20150416235912) do
 
   create_table "costs", force: true do |t|
     t.string  "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150416043553) do
     t.string   "main_picture"
     t.string   "purchase_date"
     t.string   "sale_date"
+    t.integer  "stock_number"
   end
 
 end

@@ -4,21 +4,28 @@
 <% end %>
 -->
 <h1><%= "#{@vehicle.year} #{@vehicle.make}, #{@vehicle.model}" %></h1>
+<h5>Total profit: <%= calculate_profit(@vehicle.id) %> - Days in stock: <%= days_in_stock(@vehicle.id) %></h5>
+<hr />
+<div class="row">
 <ul>
+  <div class="six columns">
+        <li>Stock number: <%= @vehicle.stock_number %></li>
 	<li>Cost: <%= @vehicle.buyprice %></li>
-        <li>Purchase date: <%= @vehicle.purchase_date %></li>
 	<li>Price: <%= @vehicle.sellprice %></li>
+        <li>Purchase date: <%= @vehicle.purchase_date %></li>
         <li>Sale date: <%= @vehicle.sale_date %></li>
 	<li>Kilometers travelled: <%= @vehicle.kilometers_travelled %></li>
 	<li>Engine capacity: <%= @vehicle.engine_capacity %></li>
 	<li>Colour: <%= @vehicle.colour %></li>
-	<li>Security interest: <%= @vehicle.security_interest %></li>
-	<li>Radio receiver: <%= @vehicle.radio_receiver %></li>
-	<li>Re-registered vehicle: <%= @vehicle.re_registered_vehicle %></li>
-	<li>Road user charges: <%= @vehicle.road_user_charges %></li>
-	<li>Outstanding road user charges: <%= @vehicle.outstanding_road_user_charges %></li>
-	<li>Imported: <%= @vehicle.imported %></li>
-	<li>Imported damaged: <%= @vehicle.imported_damaged %></li>
+	<li>Security interest: <%= true_yes(@vehicle.security_interest) %></li>
+	<li>Radio receiver: <%= true_yes(@vehicle.radio_receiver) %></li>
+	<li>Re-registered vehicle: <%= true_yes(@vehicle.re_registered_vehicle) %></li>
+  </div>
+  <div class="six columns">
+	<li>Road user charges: <%= true_yes(@vehicle.road_user_charges) %></li>
+	<li>Outstanding road user charges: <%= true_yes(@vehicle.outstanding_road_user_charges) %></li>
+	<li>Imported: <%= true_yes(@vehicle.imported) %></li>
+	<li>Imported damaged: <%= true_yes(@vehicle.imported_damaged) %></li>
 	<li>Warrant expiry: <%= @vehicle.warrant_expiry %></li>
 	<li>Vehicle licence expiry: <%= @vehicle.vehicle_licence_expiry %></li>
 	<li>First registered: <%= @vehicle.first_registered %></li>
@@ -30,19 +37,25 @@
 	<li>Vin number: <%= @vehicle.vin_number %></li>
 	<li>Fuel type: <%= @vehicle.fuel_type %></li>
 	<li>Description: <%= @vehicle.description %></li>
+  </div>
 </ul>
-<a href="/vehicles/delete/<%= @vehicle.id %>">Delete</a>
-<a href="/vehicles/edit/<%= @vehicle.id %>">Edit</a>
+</div>
+<a href="/vehicles/delete/<%= @vehicle.id %>" class="btn-red">Delete</a>
+<a href="/vehicles/edit/<%= @vehicle.id %>" class="btn">Edit</a>
 <hr />
-<div id="costs">
+<div id="costs" class="row">
   <h3>Costs incurred</h3>
   <% @costs.each do |c| %>
+    <div class="three columns cost">
     <ul>
       <li>Name: <%= c.name %></li>
       <li>Description: <%= c.description %></li>
       <li>Price: <%= c.price %></li>
     </ul>
+    </div>
   <% end %>
+</div>
+<div>
   <h5>Add a cost</h5>
   <form action="/costs" method="post">
     <label for="cost_name">Name</label>
@@ -55,7 +68,7 @@
 
     <label for="cost_price">Price</label>
     <input id="cost_price" name="cost[price]" type="text" value="" />
-    <br />
+    
     <input type="hidden" name="cost[vehicle_id]" value="<%= @vehicle.id %>" />
     <input type="submit" value="Add cost" />
   </form>

@@ -97,8 +97,8 @@ post "/vehicles" do
   @vehicle.kilometers_travelled = params[:vehicle][:kilometers_travelled].delete ","
 
   if @vehicle.save
-    redirect "/"
     flash[:notice] = "Vehicle saved"
+    redirect "/"
   else
     flash[:notice] = "Save failed - #{params[:vehicle]}"
     redirect "/"
@@ -142,6 +142,7 @@ end
 
 get "/vehicles/delete/:id" do
   Vehicle.destroy(params[:id])
+  flash[:notice] = "Car removed"
   redirect "/"
 end
 
@@ -156,6 +157,12 @@ post "/costs" do
     redirect back
     
   end
+end
+
+get "/costs/delete/:id" do
+  Cost.destroy(params[:id])
+  flash[:notice] = "Cost deleted"
+  redirect back
 end
 
 get "/users/new" do

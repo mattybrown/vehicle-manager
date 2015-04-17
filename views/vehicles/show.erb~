@@ -51,25 +51,32 @@
       <li>Name: <%= c.name %></li>
       <li>Description: <%= c.description %></li>
       <li>Price: <%= c.price %></li>
+      <li><a href="/costs/delete/<%= c.id %>">Delete</a></li>
     </ul>
     </div>
   <% end %>
 </div>
-<div>
+<div class="row">
   <h5>Add a cost</h5>
-  <form action="/costs" method="post">
+
+    <form action="/costs" method="post">
+      <input type="hidden" name="cost[vehicle_id]" value="<%= @vehicle.id %>" />
+  
+  <div class="one-third column">
     <label for="cost_name">Name</label>
     <input id="cost_name" name="cost[name]" type="text" value="" />
-    <br />
-
+  </div>
+  <div class="one-third column">
     <label for="cost_description">Description</label>
     <textarea id="cost_description" name="cost[description]" type="text" value=""></textarea>
-    <br />
-
+  </div>
+  <div class="one-third column">
     <label for="cost_price">Price</label>
     <input id="cost_price" name="cost[price]" type="text" value="" />
-    
-    <input type="hidden" name="cost[vehicle_id]" value="<%= @vehicle.id %>" />
+  </div>
+</div>
+<div class="row">
     <input type="submit" value="Add cost" />
+  
   </form>
 </div>

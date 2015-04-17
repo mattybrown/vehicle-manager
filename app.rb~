@@ -142,19 +142,27 @@ end
 
 get "/vehicles/delete/:id" do
   Vehicle.destroy(params[:id])
+  flash[:notice] = "Car removed"
   redirect "/"
 end
 
 post "/costs" do
   @cost = Cost.new(params[:cost])
   if @cost.save
-    redirect back
     flash[:notice] = "Cost added"
+    redirect back
+
   else
     flash[:notice] = @cost.errors.full_messages
     redirect back
     
   end
+end
+
+get "/costs/delete/:id" do
+  Cost.destroy(params[:id])
+  flash[:notice] = "Cost deleted"
+  redirect back
 end
 
 get "/users/new" do

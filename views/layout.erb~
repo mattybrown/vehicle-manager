@@ -33,6 +33,11 @@
   <link rel="apple-touch-icon" sizes="72x72" href="<%= url('images/apple-touch-icon-72x72.png') %>">
   <link rel="apple-touch-icon" sizes="114x114" href="<%= url('images/apple-touch-icon-114x114.png') %>">
 
+  <!-- Javascript
+  ================================================== -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="<%= url('js/custom.js') %>"></script>
+
 </head>
 <body>
 
@@ -44,10 +49,15 @@
     <a href="/">HOME</a>
   </div> 
   <div class="container">
- 
-
+  <% if @flash %>
+    <div class="row flash">
+      <p>
       <%= @flash %>
+      </p>
+    </div>    
+  <% end %>
       <% if logged_in? %>
+        
         <div class="row">
         <%= yield %>
       <% else %>

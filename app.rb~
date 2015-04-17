@@ -75,7 +75,7 @@ helpers do
 end
 
 get "/" do
-  @vehicles = Vehicle.all
+  @vehicles = Vehicle.find(:all, :order => "stock_number DESC")
   @flash = flash[:notice]
   @user = session['a']
   erb :"vehicles/index"
@@ -97,8 +97,8 @@ post "/vehicles" do
   @vehicle.kilometers_travelled = params[:vehicle][:kilometers_travelled].delete ","
 
   if @vehicle.save
-    redirect "/"
     flash[:notice] = "Vehicle saved"
+    redirect "/"
   else
     flash[:notice] = "Save failed - #{params[:vehicle]}"
     redirect "/"

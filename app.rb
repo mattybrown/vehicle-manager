@@ -75,7 +75,7 @@ helpers do
 end
 
 get "/" do
-  @vehicles = Vehicle.all
+  @vehicles = Vehicle.find(:all, :order => "stock_number DESC")
   @flash = flash[:notice]
   @user = session['a']
   erb :"vehicles/index"

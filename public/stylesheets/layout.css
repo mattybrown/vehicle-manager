@@ -125,7 +125,7 @@
 }
 
 .flash{
-  margin-left: 8px;
+  padding: 8px;
   -webkit-border-radius: 8;
   -moz-border-radius: 8;
   border-radius: 8px;

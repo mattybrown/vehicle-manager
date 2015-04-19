@@ -29,6 +29,17 @@
   <input id="vehicle_buyprice" name="vehicle[buyprice]" type="text" value="<%= @vehicle.buyprice %>" />
   <br />
 
+  <label for="vehicle_purchase_date">Purchase Date</label>
+  <input id="vehicle_purchase_date" name="vehicle[purchase_date]" type="text" value="<%= @vehicle.purchase_date %>" />
+  <br />
+
+  <label for="vehicle_sale_date">Sale Date</label>
+  <input id="vehicle_sale_date" name="vehicle[sale_date]" type="text" value="<%= @vehicle.sale_date %>" />
+  <br />
+
+</div>
+<div class="one-third column">
+
   <label for="vehicle_kilometers_travelled">Kilometers travelled</label>
   <input id="vehicle_kilometers_travelled" name="vehicle[kilometers_travelled]" type="text" value="<%= @vehicle.kilometers_travelled %>" />
   <br />
@@ -36,9 +47,6 @@
   <label for="vehicle_engine_capacity">Engine capacity</label>
   <input id="vehicle_engine_capacity" name="vehicle[engine_capacity]" type="text" value="<%= @vehicle.engine_capacity %>" />
   <br />
-
-</div>
-<div class="one-third column">
 
   <label for="vehicle_colour">Colour</label>
   <input id="vehicle_colour" name="vehicle[colour]" type="text" value="<%= @vehicle.colour %>" />
@@ -74,7 +82,7 @@
   <input id="vehicle_imported" name="vehicle[imported]" type="radio" value="false" checked />No
   <br />
 
-  <label for="vehicle_imported_damaged">Imported</label>
+  <label for="vehicle_imported_damaged">Imported Damaged</label>
   <input id="vehicle_imported_damaged" name="vehicle[imported_damaged]" type="radio" value="true" />Yes
   <input id="vehicle_imported_damaged" name="vehicle[imported_damaged]" type="radio" value="false" checked />No
   <br />
@@ -87,6 +95,9 @@
   <input id="vehicle_vehicle_licence_expiry" name="vehicle[vehicle_licence_expiry]" type="text" value="<%= @vehicle.vehicle_licence_expiry %>" />
   <br />
 
+</div>
+<div class="one-third column">
+
   <label for="vehicle_first_registered">Year first registered in NZ</label>
   <input id="vehicle_first_registered" name="vehicle[first_registered]" type="text" value="<%= @vehicle.first_registered %>" />
   <br />
@@ -94,9 +105,6 @@
   <label for="vehicle_first_registered_overseas">Year first registered overseas</label>
   <input id="vehicle_first_registered_overseas" name="vehicle[first_registered_overseas]" type="text" value="<%= @vehicle.first_registered_overseas %>" />
   <br />
-
-</div>
-<div class="one-third column">
 
   <label for="vehicle_country_last_registered">Country where last registered</label>
   <input id="vehicle_country_last_registered" name="vehicle[country_last_registered]" type="text" value="<%= @vehicle.country_last_registered %>" />

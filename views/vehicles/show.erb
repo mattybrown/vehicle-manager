@@ -1,8 +1,4 @@
-<!--
-<% if @vehicle.main_picture %>
-  <img src="/cars/<%= @vehicle.main_picture %>" width="400px" />
-<% end %>
--->
+
 <h1><%= "#{@vehicle.year} #{@vehicle.make}, #{@vehicle.model}" %></h1>
 <h5>Total profit: <%= calculate_profit(@vehicle.id) %> - Days in stock: <%= days_in_stock(@vehicle.id) %></h5>
 <hr />

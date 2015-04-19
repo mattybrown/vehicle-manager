@@ -1,25 +1,24 @@
 <h3>Add vehicle</h3>
 
 <form action="/vehicles/edit/<%= @vehicle.id %>" method="post" enctype="multipart/form-data">
-  
+<label for="vehicle_stock_number">Stock Number</label>
+  <input id="vehicle_stock_number" name="vehicle[stock_number]" type="text" value="<%= @vehicle.stock_number %>" required />
+  <br />
+
   <label for="vehicle_make">Make</label>
-  <input id="vehicle_make" name="vehicle[make]" type="text" value="<%= @vehicle.make %>" />
+  <input id="vehicle_make" name="vehicle[make]" type="text" value="<%= @vehicle.make %>" required />
   <br />
 
   <label for="vehicle_model">Model</label>
-  <input id="vehicle_model" name="vehicle[model]" type="text" value="<%= @vehicle.model %>" />
+  <input id="vehicle_model" name="vehicle[model]" type="text" value="<%= @vehicle.model %>" required />
   <br />
 
   <label for="vehicle_year">Year</label>
-  <input id="vehicle_year" name="vehicle[year]" type="text" value="<%= @vehicle.year %>" />
+  <input id="vehicle_year" name="vehicle[year]" type="text" value="<%= @vehicle.year %>" required />
   <br />
 
   <label for="vehicle_sellprice">Sell Price</label>
   <input id="vehicle_sellprice" name="vehicle[sellprice]" type="text" value="<%= @vehicle.sellprice %>" />
-  <br />
-
-  <label for="vehicle_sale_date">Sale Date</label>
-  <input id="vehicle_sale_date" name="vehicle[sale_date]" type="text" value="<%= @vehicle.sale_date %>" />
   <br />
 
   <label for="vehicle_buyprice">Buy Price</label>
@@ -27,8 +26,15 @@
   <br />
 
   <label for="vehicle_purchase_date">Purchase Date</label>
-  <input id="vehicle_purchase_date" name="vehicle[purchase_date]" type="text" value="<%= @vehicle.purchase_date %>" />
+  <input id="vehicle_purchase_date" name="vehicle[purchase_date]" type="text" value="<%= @vehicle.purchase_date %>" required />
   <br />
+
+  <label for="vehicle_sale_date">Sale Date</label>
+  <input id="vehicle_sale_date" name="vehicle[sale_date]" type="text" value="<%= @vehicle.sale_date %>" />
+  <br />
+
+</div>
+<div class="one-third column">
 
   <label for="vehicle_kilometers_travelled">Kilometers travelled</label>
   <input id="vehicle_kilometers_travelled" name="vehicle[kilometers_travelled]" type="text" value="<%= @vehicle.kilometers_travelled %>" />
@@ -72,7 +78,7 @@
   <input id="vehicle_imported" name="vehicle[imported]" type="radio" value="false" checked />No
   <br />
 
-  <label for="vehicle_imported_damaged">Imported</label>
+  <label for="vehicle_imported_damaged">Imported Damaged</label>
   <input id="vehicle_imported_damaged" name="vehicle[imported_damaged]" type="radio" value="true" />Yes
   <input id="vehicle_imported_damaged" name="vehicle[imported_damaged]" type="radio" value="false" checked />No
   <br />
@@ -84,6 +90,9 @@
   <label for="vehicle_vehicle_licence_expiry">Vehicle licence expiry date</label>
   <input id="vehicle_vehicle_licence_expiry" name="vehicle[vehicle_licence_expiry]" type="text" value="<%= @vehicle.vehicle_licence_expiry %>" />
   <br />
+
+</div>
+<div class="one-third column">
 
   <label for="vehicle_first_registered">Year first registered in NZ</label>
   <input id="vehicle_first_registered" name="vehicle[first_registered]" type="text" value="<%= @vehicle.first_registered %>" />
@@ -112,7 +121,8 @@
   <label for="vehicle_description">Description</label>
   <textarea id="vehicle_description" name="vehicle[description]" value="<%= @vehicle.description %>"></textarea>
   <br />
-
+</div>
+</div>
 
   <input type="submit" value="Update vehicle" />
 </form>

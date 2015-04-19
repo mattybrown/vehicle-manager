@@ -53,7 +53,7 @@ helpers do
   def days_in_stock(v)
     vehicle = Vehicle.find(v)
     pd = vehicle.purchase_date
-    if vehicle.sale_date == ""
+    if vehicle.sale_date == "" or vehicle.sale_date == nil
       pd = Date.parse(pd)
       today = Date.today
       return today.mjd - pd.mjd

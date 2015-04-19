@@ -1,17 +1,24 @@
 <h3>Add vehicle</h3>
 
-<form action="/vehicles" method="post" enctype="multipart/form-data">
-  
+<div class="row">
+
+<div class="one-third column">
+
+<form action="/vehicles" method="post" enctype="multipart/form-data" id="vehicleForm">
+  <label for="vehicle_stock_number">Stock Number</label>
+  <input id="vehicle_stock_number" name="vehicle[stock_number]" type="text" value="<%= @vehicle.stock_number %>" required />
+  <br />
+
   <label for="vehicle_make">Make</label>
-  <input id="vehicle_make" name="vehicle[make]" type="text" value="<%= @vehicle.make %>" />
+  <input id="vehicle_make" name="vehicle[make]" type="text" value="<%= @vehicle.make %>" required />
   <br />
 
   <label for="vehicle_model">Model</label>
-  <input id="vehicle_model" name="vehicle[model]" type="text" value="<%= @vehicle.model %>" />
+  <input id="vehicle_model" name="vehicle[model]" type="text" value="<%= @vehicle.model %>" required />
   <br />
 
   <label for="vehicle_year">Year</label>
-  <input id="vehicle_year" name="vehicle[year]" type="text" value="<%= @vehicle.year %>" />
+  <input id="vehicle_year" name="vehicle[year]" type="text" value="<%= @vehicle.year %>" required />
   <br />
 
   <label for="vehicle_sellprice">Sell Price</label>
@@ -29,6 +36,9 @@
   <label for="vehicle_engine_capacity">Engine capacity</label>
   <input id="vehicle_engine_capacity" name="vehicle[engine_capacity]" type="text" value="<%= @vehicle.engine_capacity %>" />
   <br />
+
+</div>
+<div class="one-third column">
 
   <label for="vehicle_colour">Colour</label>
   <input id="vehicle_colour" name="vehicle[colour]" type="text" value="<%= @vehicle.colour %>" />
@@ -85,6 +95,9 @@
   <input id="vehicle_first_registered_overseas" name="vehicle[first_registered_overseas]" type="text" value="<%= @vehicle.first_registered_overseas %>" />
   <br />
 
+</div>
+<div class="one-third column">
+
   <label for="vehicle_country_last_registered">Country where last registered</label>
   <input id="vehicle_country_last_registered" name="vehicle[country_last_registered]" type="text" value="<%= @vehicle.country_last_registered %>" />
   <br />
@@ -104,10 +117,7 @@
   <label for="vehicle_description">Description</label>
   <textarea id="vehicle_description" name="vehicle[description]" value="<%= @vehicle.description %>"></textarea>
   <br />
-=begin
-  <label for="vehicle_main_picture">Main picture</label>
-  <input id="vehicle_main_picture" name="vehicle[main_picture]" type="file" />
-  <br />
-=end
+</div>
+</div>
   <input type="submit" value="Add vehicle" />
 </form>

@@ -51,9 +51,9 @@
   <div class="container">
   <% if @flash %>
     <div class="row flash">
-      <p>
+      
       <%= @flash %>
-      </p>
+     
     </div>    
   <% end %>
       <% if logged_in? %>

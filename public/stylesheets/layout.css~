@@ -18,19 +18,15 @@
 ================================================== */
 
 #nav{
-  background:#444;
-  padding-left:50px;
-  position:fixed;
-  width:100%;
+
 }
 
 #nav a{
-  text-decoration:none;
-  color:#ccc;
+
 }
 
 .container{
-  padding-top:50px;
+
 }
 
 .btn {
@@ -125,7 +121,7 @@
 }
 
 .flash{
-  margin-left: 8px;
+  padding: 8px;
   -webkit-border-radius: 8;
   -moz-border-radius: 8;
   border-radius: 8px;

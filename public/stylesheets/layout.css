@@ -18,19 +18,15 @@
 ================================================== */
 
 #nav{
-  background:#444;
-  padding-left:50px;
-  position:fixed;
-  width:100%;
+
 }
 
 #nav a{
-  text-decoration:none;
-  color:#ccc;
+
 }
 
 .container{
-  padding-top:50px;
+  padding-top:10px;
 }
 
 .btn {

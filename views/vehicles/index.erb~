@@ -6,7 +6,7 @@
   <% if v.sale_date == "" %>
     <a href="vehicles/show/<%= v.id %>"><li class="for_sale"><%= "#{v.stock_number}: #{v.year} #{v.make} #{v.model}" %> - Days in stock: <%= days_in_stock(v.id) %></li></a>
   <% else %>
-    <a href="vehicles/show/<%= v.id %>"><li class="sold"><%= "#{v.year} #{v.make} #{v.model}" %> - Days in stock: <%= days_in_stock(v.id) %></li></a>
+    <a href="vehicles/show/<%= v.id %>"><li class="sold"><%= "#{v.stock_number}: #{v.year} #{v.make} #{v.model}" %> - Days in stock: <%= days_in_stock(v.id) %></li></a>
   <% end %>  
 <% end %>
 </ul>

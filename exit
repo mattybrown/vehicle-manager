@@ -1,0 +1,65 @@
+[33mcommit 935146e5d9c7191a29543cc56981e174e2da415d[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Mon Apr 20 10:31:08 2015 +1200
+
+    fixed date bug
+
+[33mcommit 89773793b9fdcaaf3708d90cad6f1517dd41498d[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Mon Apr 20 09:35:56 2015 +1200
+
+    tweaking ui
+
+[33mcommit 0c0f9c9411b6da9a453215eca752051c6fef917f[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Fri Apr 17 17:20:07 2015 +1200
+
+    minor patches
+
+[33mcommit 27c70cc40e2a23fb4321cc5fbd5e552e43d81e5f[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Fri Apr 17 14:49:10 2015 +1200
+
+    added some beautiful javascript!
+
+[33mcommit 1ab350d1a6736c453dcf21e69d5427bde3f6abc6[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Fri Apr 17 14:01:41 2015 +1200
+
+    Added true to yes helper and some prettification and validations
+
+[33mcommit 96741c2998221587e3088b1ae8348a2f8d410e65[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Thu Apr 16 17:19:26 2015 +1200
+
+    updated feature list
+
+[33mcommit fa721b8de4624009699d5e72e2525f0037089f7e[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Thu Apr 16 17:11:55 2015 +1200
+
+    added profit calculator helper
+
+[33mcommit 237d4df20a2d21f1f615a63958394d7444c77078[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Thu Apr 16 16:39:06 2015 +1200
+
+    added costs to vehicles
+
+[33mcommit 1c5c214573c980a8dc6e370fc15a3722676a0c1d[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Thu Apr 16 14:39:32 2015 +1200
+
+    added edit function
+
+[33mcommit 285de58b5e69bf29789ed87ee2ed7babdfc86878[m
+Author: Matt Brown <brownprobable@gmail.com>
+Date:   Thu Apr 16 13:47:26 2015 +1200
+
+    removed picture functionality
+
+[33mcommit eefd14e3247633fbdde1798d7895b00dbdb2ead1[m
+Author: Matt <brownprobable@gmail.com>
+Date:   Fri Jun 6 08:12:55 2014 +1200
+
+    First commit

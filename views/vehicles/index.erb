@@ -1,4 +1,6 @@
-<p><strong><%= "Hi, #{@user.capitalize}" %></strong></p>
+<% if @user %>
+  <p><strong><%= "Hi, #{@user.capitalize}" %></strong></p>
+<% end %>
 <a href="/vehicles/new" class="btn">Add a car</a>
 <hr />
 <ul id="vehicle_list">

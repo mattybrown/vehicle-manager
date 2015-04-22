@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150416235912) do
+ActiveRecord::Schema.define(version: 20150422230925) do
 
   create_table "costs", force: true do |t|
     t.string  "name"
@@ -20,6 +20,28 @@ ActiveRecord::Schema.define(version: 20150416235912) do
   end
 
   add_index "costs", ["vehicle_id"], name: "index_costs_on_vehicle_id"
+
+  create_table "customers", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "occupation"
+    t.string   "employer"
+    t.integer  "gst_number"
+    t.integer  "home_phone"
+    t.integer  "mobile_phone"
+    t.integer  "business_phone"
+    t.string   "email"
+    t.string   "bank"
+    t.date     "date_of_birth"
+    t.string   "drivers_license_number"
+    t.string   "nzta_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "vehicle_id"
+  end
+
+  add_index "customers", ["vehicle_id"], name: "index_customers_on_vehicle_id"
 
   create_table "users", force: true do |t|
     t.string   "uname"

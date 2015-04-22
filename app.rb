@@ -27,6 +27,10 @@ class Cost < ActiveRecord::Base
   validates :price, numericality: true
 end
 
+class Customer <ActiveRecord::Base
+  validates :first_name, presence: true
+end
+
 helpers do
   def create_password(p)
     BCrypt::Password.create(p)
@@ -36,18 +40,32 @@ helpers do
     session['u']
   end
 
+  def total_cost(c)
+    costs = Cost.where(vehicle_id: c)
+    if costs != []
+      total_cost = 0
+      costs.each do |c|
+        if c.price != nil
+          total_cost += c.price
+        end
+      end
+      return total_cost
+    end
+  end
+
   def calculate_profit(v)
     vehicle = Vehicle.find(v)
-    costs = Cost.where(vehicle_id: v)
-    total_cost = 0
-    costs.each do |c|
-      if c.price != nil
-        total_cost += c.price
-      end
+    cost = total_cost(v)
+    if vehicle.sellprice && vehicle.buyprice && cost
+      profit = vehicle.sellprice - vehicle.buyprice - cost
+      return profit.round(2)
+    elsif vehicle.sellprice && vehicle.buyprice
+      profit = vehicle.sellprice - vehicle.buyprice
+      return profit.round(2)
+    else
+      return "N/A"
     end
 
-    profit = vehicle.sellprice - vehicle.buyprice - total_cost
-    return profit.round(2)
   end
 
   def days_in_stock(v)
@@ -91,7 +109,7 @@ post "/vehicles" do
 
     @vehicle.main_picture = params[:vehicle][:main_picture][:filename]
   end
-=end  
+=end
   @vehicle.sellprice = params[:vehicle][:sellprice].delete "$,"
   @vehicle.buyprice = params[:vehicle][:buyprice].delete "$,"
   @vehicle.kilometers_travelled = params[:vehicle][:kilometers_travelled].delete ","
@@ -102,7 +120,7 @@ post "/vehicles" do
   else
     flash[:notice] = "Save failed - #{params[:vehicle]}"
     redirect "/"
-    
+
   end
 end
 
@@ -119,7 +137,7 @@ post "/vehicles/edit/:id" do
   else
     flash[:notice] = @vehicle.errors.messages
     redirect "/"
-    
+
   end
 end
 
@@ -155,7 +173,7 @@ post "/costs" do
   else
     flash[:notice] = @cost.errors.full_messages
     redirect back
-    
+
   end
 end
 

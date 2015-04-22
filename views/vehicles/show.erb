@@ -38,9 +38,43 @@
 </div>
 <a href="/vehicles/delete/<%= @vehicle.id %>" class="btn-red">Delete</a>
 <a href="/vehicles/edit/<%= @vehicle.id %>" class="btn">Edit</a>
+
+<% if @vehicle.sale_date %>
+  <% if customer_exists(@vehicle.id) %>
+    <hr />
+    <div id="customer" class="row">
+      <h3>Sold to</h3>
+      <% @customers.each do |c| %>
+
+          <ul>
+            <div class="six columns">
+              <li>Name: <%= c.first_name %> <%= c.last_name %></li>
+              <li>Address: <%= c.address %></li>
+              <li>Occupation: <%= c.occupation %></li>
+              <li>Employer: <%= c.employer %></li>
+              <li>Home Phone: <%= c.home_phone %></li>
+              <li>Mobile Phone: <%= c.mobile_phone %></li>
+              <li>Business Phone: <%= c.business_phone %></li>
+              <li>GST Number: <%= c.gst_number %></li>
+            </div>
+            <div class="six columns">
+              <li>Email: <%= c.email %></li>
+              <li>Bank: <%= c.bank %></li>
+              <li>D.O.B: <%= c.date_of_birth %></li>
+              <li>Drivers Licence #: <%= c.drivers_license_number %></li>
+              <li>NZTA #: <%= c.nzta_number %></li>
+            </div>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
 <hr />
 <div id="costs" class="row">
   <h3>Costs incurred</h3>
+  <h5>Total: <%= total_cost(@vehicle.id) %></h5>
   <% @costs.each do |c| %>
     <div class="three columns cost">
     <ul>
@@ -58,7 +92,7 @@
 
     <form action="/costs" method="post">
       <input type="hidden" name="cost[vehicle_id]" value="<%= @vehicle.id %>" />
-  
+
   <div class="one-third column">
     <label for="cost_name">Name</label>
     <input id="cost_name" name="cost[name]" type="text" value="" />
@@ -74,6 +108,6 @@
 </div>
 <div class="row">
     <input type="submit" value="Add cost" />
-  
+
   </form>
 </div>

@@ -48,7 +48,7 @@
 
   <div class="container">
   <div id="nav">
-    <a href="/">Home</a>
+    <a href="/">Home</a> | 
     <a href="/logout">Log out</a>
   </div> 
   <hr />

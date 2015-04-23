@@ -48,19 +48,19 @@
 
   <div class="container">
   <div id="nav">
-    <a href="/">Home</a> | 
-    <% if logged_in? %><a href="/logout">Log out</a><% end %>
-  </div> 
+    <a href="/">Home</a>
+    <% if logged_in? %> | <a href="/logout">Log out</a><% end %>
+  </div>
   <hr />
   <% if @flash %>
     <div class="row flash">
-      
+
       <%= @flash %>
-     
-    </div>    
+
+    </div>
   <% end %>
       <% if logged_in? %>
-        
+
         <div class="row">
         <%= yield %>
       <% else %>

@@ -1,4 +1,0 @@
-class AddBuyAndSellDatesToVehicles < ActiveRecord::Migration
-  def change
-  end
-end

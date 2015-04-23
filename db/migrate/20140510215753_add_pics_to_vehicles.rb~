@@ -1,4 +1,0 @@
-class AddPicsToVehicles < ActiveRecord::Migration
-  def change
-  end
-end

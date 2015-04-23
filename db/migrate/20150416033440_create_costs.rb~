@@ -1,9 +1,0 @@
-class CreateCosts < ActiveRecord::Migration
-  def change
-    create_table :costs do |c|
-      t.string :name
-      t.text :description
-      t.integer :price
-    end
-  end
-end

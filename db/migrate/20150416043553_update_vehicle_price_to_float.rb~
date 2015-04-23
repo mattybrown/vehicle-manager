@@ -1,4 +1,0 @@
-class UpdateVehiclePriceToFloat < ActiveRecord::Migration
-  def change
-  end
-end

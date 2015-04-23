@@ -1,4 +1,0 @@
-class AddAssociationToCosts < ActiveRecord::Migration
-  def change
-  end
-end

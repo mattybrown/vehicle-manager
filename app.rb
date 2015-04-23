@@ -149,6 +149,7 @@ end
 get '/vehicles/show/:id' do
   @vehicle = Vehicle.find(params[:id])
   @costs = Cost.where(vehicle_id: params[:id])
+  @customers = Customer.where(vehicle_id: params[:id])
   @flash = flash[:notice]
   erb :"vehicles/show"
 end
@@ -195,6 +196,16 @@ post "/users" do
     redirect "/"
   else
     flash[:notice] = "Nah didn't work!"
+  end
+end
+
+post "/customers" do
+  @customer = Customer.new(params[:customer])
+  if @customer.save
+    flash[:notice] = "Customer saved"
+    redirect back
+  else
+    flash[:notice] = "Save failed"
   end
 end
 

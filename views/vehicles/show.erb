@@ -39,13 +39,12 @@
 <a href="/vehicles/delete/<%= @vehicle.id %>" class="btn-red">Delete</a>
 <a href="/vehicles/edit/<%= @vehicle.id %>" class="btn">Edit</a>
 
-<% if @vehicle.sale_date %>
-  <% if customer_exists(@vehicle.id) %>
+<% if @vehicle.sale_date != "" %>
+  <% if @customers.any? %>
     <hr />
     <div id="customer" class="row">
       <h3>Sold to</h3>
       <% @customers.each do |c| %>
-
           <ul>
             <div class="six columns">
               <li>Name: <%= c.first_name %> <%= c.last_name %></li>
@@ -68,6 +67,61 @@
         </div>
       <% end %>
     </div>
+  <% else %>
+  <hr />
+    <h3>Add purchase details</h3>
+    <form action="/customers" method="post">
+    <div class="six columns">
+      <input type="hidden" name="customer[vehicle_id]" value="<%= @vehicle.id %>" />
+
+      <label for="customer_first_name">First Name</label>
+      <input id="customer_first_name" name="customer[first_name]" type="text" value="" />
+
+      <label for="customer_last_name">Last Name</label>
+      <input id="customer_last_name" name="customer[last_name]" type="text" value="" />
+
+      <label for="customer_address">Address</label>
+      <input id="customer_address" name="customer[address]" type="text" value="" />
+
+      <label for="customer_occupation">Occupation</label>
+      <input id="customer_occupation" name="customer[occupation]" type="text" value="" />
+
+      <label for="customer_employer">Employer</label>
+      <input id="customer_employer" name="customer[employer]" type="text" value="" />
+
+      <label for="customer_gst_number">GST number</label>
+      <input id="customer_gst_number" name="customer[gst_number]" type="text" value="" />
+
+      <label for="customer_home_phone">Home phone</label>
+      <input id="customer_home_phone" name="customer[home_phone]" type="text" value="" />
+
+    </div>
+    <div class="six columns">
+
+      <label for="customer_mobile_phone">Mobile phone</label>
+      <input id="customer_mobile_phone" name="customer[mobile_phone]" type="text" value="" />
+
+      <label for="customer_business_phone">Business phone</label>
+      <input id="customer_business_phone" name="customer[business_phone]" type="text" value="" />
+
+      <label for="customer_email">Email</label>
+      <input id="customer_email" name="customer[email]" type="text" value="" />
+
+      <label for="customer_bank">Bank</label>
+      <input id="customer_bank" name="customer[bank]" type="text" value="" />
+
+      <label for="customer_date_of_birth">D.O.B</label>
+      <input id="customer_date_of_birth" name="customer[date_of_birth]" type="text" value="" />
+
+      <label for="customer_drivers_license_number">Drivers licence #</label>
+      <input id="customer_drivers_license_number" name="customer[drivers_license_number]" type="text" value="" />
+
+      <label for="customer_nzta_number">NZTA #</label>
+      <input id="customer_nzta_number" name="customer[nzta_number]" type="text" value="" />
+    </div>
+      <input type="submit" value="Save" />
+
+    </form>
   <% end %>
 <% end %>
 

@@ -1,5 +1,5 @@
 
-<h1><%= "#{@vehicle.year} #{@vehicle.make}, #{@vehicle.model}" %></h1>
+<h1><%= "#{@vehicle.year} #{@vehicle.make} #{@vehicle.model}" %></h1>
 <h5>Total profit: <%= calculate_profit(@vehicle.id) %> - Days in stock: <%= days_in_stock(@vehicle.id) %></h5>
 <hr />
 <div class="row">
@@ -42,9 +42,10 @@
 <% if @vehicle.sale_date != "" %>
   <% if @customers.any? %>
     <hr />
-    <div id="customer" class="row">
+
       <h3>Sold to</h3>
       <% @customers.each do |c| %>
+      <div id="customer" class="row">
           <ul>
             <div class="six columns">
               <li>Name: <%= c.first_name %> <%= c.last_name %></li>
@@ -54,17 +55,21 @@
               <li>Home Phone: <%= c.home_phone %></li>
               <li>Mobile Phone: <%= c.mobile_phone %></li>
               <li>Business Phone: <%= c.business_phone %></li>
-              <li>GST Number: <%= c.gst_number %></li>
             </div>
             <div class="six columns">
+              <li>GST Number: <%= c.gst_number %></li>
               <li>Email: <%= c.email %></li>
               <li>Bank: <%= c.bank %></li>
-              <li>D.O.B: <%= c.date_of_birth %></li>
+              <li>D.O.B: <%= c.date_of_birth.strftime('%d %b %Y') %> - <%= age_of_customer(c.id) %> years old</li>
               <li>Drivers Licence #: <%= c.drivers_license_number %></li>
               <li>NZTA #: <%= c.nzta_number %></li>
             </div>
           </ul>
-        </div>
+      </div>
+      <a href="/customer/delete/<%= c.id %>" class="btn-red">Delete</a>
+
+
+
       <% end %>
     </div>
   <% else %>

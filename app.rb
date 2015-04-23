@@ -90,6 +90,13 @@ helpers do
     end
   end
 
+  def age_of_customer(d)
+    cuntstomer = Customer.find(d)
+    bday = cuntstomer.date_of_birth
+    age = (Date.today - bday) / 365.25
+    return age.to_i
+  end
+
 end
 
 get "/" do
@@ -206,6 +213,16 @@ post "/customers" do
     redirect back
   else
     flash[:notice] = "Save failed"
+  end
+end
+
+get "/customer/delete/:id" do
+  if Customer.destroy(params[:id])
+    flash[:notice] = "Customer deleted"
+    redirect back
+  else
+    flash[:notice] = "Delete failed"
+    redirect back
   end
 end
 
